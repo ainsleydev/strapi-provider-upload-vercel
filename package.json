@@ -1,0 +1,51 @@
+{
+	"name": "strapi-provider-upload-vercel",
+	"version": "1.0.0",
+	"description": "Vercel Blob provider for Strapi upload.",
+	"repository": "https://github.com/ainsleydev/strapi-provider-upload-vercel",
+	"license": "MIT",
+	"keywords": [
+		"strapi",
+		"upload",
+		"provider",
+		"vercel",
+		"blob"
+	],
+	"author": {
+		"name": "ainsley.dev LTD",
+		"email": "hello@ainsley.dev",
+		"url": "https://ainsley.dev"
+	},
+	"maintainers": [
+		{
+			"name": "Ainsley Clark",
+			"email": "hello@ainsley.dev",
+			"url": "https://ainsley.dev"
+		}
+	],
+	"bugs": {
+		"url": "https://github.com/ainsleydev/strapi-provider-upload-vercel/issues"
+	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"./dist"
+	],
+	"scripts": {
+		"build": "tsc --build",
+		"watch": "tsc --watch",
+		"lint": "prettier --write --plugin-search-dir . --check . && eslint . --quiet",
+		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"dependencies": {
+		"@vercel/blob": "^0.13.0"
+	},
+	"engines": {
+		"node": ">=16.0.0 <=20.x.x",
+		"npm": ">=6.0.0"
+	},
+	"devDependencies": {
+		"eslint-config-custom": "^0.0.0",
+		"tsconfig": "^7.0.0"
+	}
+}
