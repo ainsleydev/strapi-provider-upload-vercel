@@ -10,6 +10,7 @@
 
 <div align="center">
 
+[![ainsley.dev Website](https://img.shields.io/badge/Website-ainsley.dev-white.svg)](https://shields.io/)
 [![Twitter Handle](https://img.shields.io/twitter/follow/ainsleydev)](https://twitter.com/ainsleydev)
 
 </div>
@@ -31,7 +32,8 @@ their [documentation](https://vercel.com/docs/storage/vercel-blob/using-blob-sdk
     when deployed on Vercel as explained in Read-write token. You can also pass a client token created with
     the `generateClientTokenFromReadWriteToken` method
 -   `addRandomSuffix` A boolean specifying whether to add a random suffix to the pathname. It defaults to `true`.
--   `cacheControlMaxAge` A number in seconds to configure the edge and browser cache. Defaults to one year. See the caching documentation for more details.
+-   `cacheControlMaxAge` A number in seconds to configure the edge and browser cache. Defaults to one year. See the
+    caching documentation for more details.
 
 ### Provider Configuration
 
@@ -39,16 +41,16 @@ their [documentation](https://vercel.com/docs/storage/vercel-blob/using-blob-sdk
 
 ```typescript
 module.exports = ({ env }) => ({
-  upload: {
-    config: {
-      provider: 'strapi-provider-upload-vercel',
-      providerOptions: {
-        token: env('VERCEL_BLOB_TOKEN'),
-        addRandomSuffix: true,
-        cacheControlMaxAge: 31536000, // Year in seconds
-      },
-    },
-  },
+	upload: {
+		config: {
+			provider: 'strapi-provider-upload-vercel',
+			providerOptions: {
+				token: env('VERCEL_BLOB_TOKEN'),
+				addRandomSuffix: true,
+				cacheControlMaxAge: 31536000, // Year in seconds
+			},
+		},
+	},
 });
 ```
 
@@ -60,37 +62,38 @@ object below instead as explained in the middleware configuration documentation.
 
 ```typescript
 export default [
-  // ...
-  {
-    name: 'strapi::security',
-    config: {
-      contentSecurityPolicy: {
-        useDefaults: true,
-        directives: {
-          'connect-src': ["'self'", 'https:'],
-          'img-src': [
-            "'self'",
-            'data:',
-            'blob:',
-            'https://yourbucketname.public.blob.vercel-storage.com',
-          ],
-          'media-src': [
-            "'self'",
-            'data:',
-            'blob:',
-            'https://yourbucketname.public.blob.vercel-storage.com',
-          ],
-          upgradeInsecureRequests: null,
-        },
-      },
-    },
-  },
+	// ...
+	{
+		name: 'strapi::security',
+		config: {
+			contentSecurityPolicy: {
+				useDefaults: true,
+				directives: {
+					'connect-src': ["'self'", 'https:'],
+					'img-src': [
+						"'self'",
+						'data:',
+						'blob:',
+						'https://yourbucketname.public.blob.vercel-storage.com',
+					],
+					'media-src': [
+						"'self'",
+						'data:',
+						'blob:',
+						'https://yourbucketname.public.blob.vercel-storage.com',
+					],
+					upgradeInsecureRequests: null,
+				},
+			},
+		},
+	},
 ];
 ```
 
 ## Open Source
 
-ainsley.dev permits the use of any code found within the repository for use with external projects.
+[ainsley.dev](https://ainsley.dev) permits the use of any code found within the repository for use with external
+projects.
 
 ## Trademark
 

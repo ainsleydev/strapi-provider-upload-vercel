@@ -99,7 +99,7 @@ export = {
 			 * @param sizeLimit
 			 * @remarks This requires a bit more work to implement, but it allows you to upload files up to 500 MB.
 			 */
-			checkFileSize(file: File, { sizeLimit }) {
+			checkFileSize(file: File) {
 				const maxUploadSizeInMB = 500,
 					kBytesToBytes = (kBytes: number) => kBytes * 1000;
 				if (kBytesToBytes(file.size) > maxUploadSizeInMB) {
@@ -111,7 +111,7 @@ export = {
 			 *
 			 * @see: https://vercel.com/docs/storage/vercel-blob/using-blob-sdk
 			 */
-			getSignedUrl(file: File) {
+			getSignedUrl() {
 				// (optional)
 				// Generate a signed URL for the given file.
 				// The signed URL allows secure access to the file.

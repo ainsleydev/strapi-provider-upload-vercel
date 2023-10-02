@@ -76,6 +76,7 @@ ssl
 .gitattributes
 .idea
 nbproject
+res
 
 ############################
 # Node.js
