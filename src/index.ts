@@ -55,7 +55,6 @@ export = {
 							file.previewUrl = result.url;
 							file.mime = result.contentType;
 							file.path = result.pathname;
-							console.log(file);
 							resolve();
 						})
 						.catch((err) => {
