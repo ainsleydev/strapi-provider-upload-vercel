@@ -39,16 +39,16 @@ their [documentation](https://vercel.com/docs/storage/vercel-blob/using-blob-sdk
 
 ```typescript
 module.exports = ({ env }) => ({
-	upload: {
-		config: {
-			provider: 'strapi-provider-upload-vercel',
-			providerOptions: {
-				token: env('VERCEL_BLOB_TOKEN'),
-				addRandomSuffix: true,
-				cacheControlMaxAge: 31536000, // Year in seconds
-			},
-		},
-	},
+  upload: {
+    config: {
+      provider: 'strapi-provider-upload-vercel',
+      providerOptions: {
+        token: env('VERCEL_BLOB_TOKEN'),
+        addRandomSuffix: true,
+        cacheControlMaxAge: 31536000, // Year in seconds
+      },
+    },
+  },
 });
 ```
 
@@ -60,31 +60,31 @@ object below instead as explained in the middleware configuration documentation.
 
 ```typescript
 export default [
-	// ...
-	{
-		name: 'strapi::security',
-		config: {
-			contentSecurityPolicy: {
-				useDefaults: true,
-				directives: {
-					'connect-src': ["'self'", 'https:'],
-					'img-src': [
-						"'self'",
-						'data:',
-						'blob:',
-						'https://yourbucketname.public.blob.vercel-storage.com',
-					],
-					'media-src': [
-						"'self'",
-						'data:',
-						'blob:',
-						'https://yourbucketname.public.blob.vercel-storage.com',
-					],
-					upgradeInsecureRequests: null,
-				},
-			},
-		},
-	},
+  // ...
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:'],
+          'img-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'https://yourbucketname.public.blob.vercel-storage.com',
+          ],
+          'media-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'https://yourbucketname.public.blob.vercel-storage.com',
+          ],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
 ];
 ```
 
