@@ -62,7 +62,6 @@ declare const _default: {
          * Ensure the file does not exceed the Vercel upload limit.
          *
          * @param file
-         * @param sizeLimit
          * @remarks This requires a bit more work to implement, but it allows you to upload files up to 500 MB.
          */
         checkFileSize(file: File): void;

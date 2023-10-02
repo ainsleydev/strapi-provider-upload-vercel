@@ -1,6 +1,6 @@
 {
 	"name": "strapi-provider-upload-vercel",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"description": "Vercel Blob provider for Strapi upload.",
 	"repository": "https://github.com/ainsleydev/strapi-provider-upload-vercel",
 	"license": "MIT",
