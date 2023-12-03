@@ -1,0 +1,24 @@
+name: Lint
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1 - Checks-out your repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v4
+
+      # Step 2 - Install dependencies
+      - name: Lint
+        run: npm install
+
+      # Step 3 - Run ESLint
+      - name: Lint
+        run: npm run lint
